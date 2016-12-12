@@ -1,0 +1,16 @@
+platform :ios, '7.0'
+
+target 'CoreFrameWork' do
+
+pod 'AFNetworking', '~>3.0'
+pod 'Reachability'
+pod 'JSONModel', '~>1.0.2'
+pod 'ZYQAssetPickerController'
+pod 'MBProgressHUD'
+pod 'SDWebImage'
+pod 'UIImage-Resize'
+pod 'UIImage-Categories'
+pod 'BlocksKit'
+pod 'pop',  '~>1.0.7'
+
+end

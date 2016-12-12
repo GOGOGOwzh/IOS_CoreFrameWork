@@ -1,0 +1,23 @@
+//
+//  NSObject+Addition.h
+//  Kit
+//
+//  Created by  wzh on 14-7-2.
+//  Copyright (c) 2014年 wzh. All rights reserved.
+//  FORMATED!
+//
+
+#import <Foundation/Foundation.h>
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//  针对NSObject扩展
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////
+@interface NSObject (Addition)
+
+#pragma mark -  check empty
++ (BOOL)isEmpty:(id)object;
++ (BOOL)isNotEmpty:(id)object;
+
+@end

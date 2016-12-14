@@ -25,6 +25,8 @@
     #import <POP/POP.h>
     #import <JSONModel/JSONModel.h>
     #import <MBProgressHUD/MBProgressHUD.h>
+    #import <BlocksKit.h>
+    #import <PureLayout.h>
 
     //定义固定常量和公用枚举
     #import "UrlConstants.h"
@@ -44,6 +46,7 @@
     #import "UIResponder+Additions.h"
     #import "NSLayoutConstraint+Additions.h"
     #import "UIImage+Additions.h"
+    #import "UIViewController+ScrollingNavbar.h"
 
     //Utils
 
@@ -56,6 +59,7 @@
     //Manager
     #import "AFNManager.h"
     #import "ReachabilityManager.h"
+    #import "FileUtils.h"
 
     //自定义view(对于全局需要使用的自定义view放这里)
 

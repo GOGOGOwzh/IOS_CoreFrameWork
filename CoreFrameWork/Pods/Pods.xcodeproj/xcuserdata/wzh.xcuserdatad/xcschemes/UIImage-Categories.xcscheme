@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '25AB2606DA5478C206CC8C7CDA49F538'
+               BlueprintIdentifier = '359E43BE3655E529CFD3D7CE6CB68260'
                BlueprintName = 'UIImage-Categories'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libUIImage-Categories.a'>

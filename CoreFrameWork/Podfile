@@ -11,6 +11,8 @@ pod 'SDWebImage'
 pod 'UIImage-Resize'
 pod 'UIImage-Categories'
 pod 'BlocksKit'
+pod 'SMPageControl'
+pod 'PureLayout'
 pod 'pop',  '~>1.0.7'
 
 end

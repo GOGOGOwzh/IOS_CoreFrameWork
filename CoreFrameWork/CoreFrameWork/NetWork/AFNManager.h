@@ -10,6 +10,7 @@
 
 typedef void (^RequestSuccessed)(id responseObject);
 typedef void (^RequestFailure)(NSInteger errorCode, NSString *errorMessage);
+typedef void (^Progress)(int64_t total,int64_t complete);
 
 typedef NS_ENUM (NSInteger, RequestType) {
     RequestTypeGET = 0,
@@ -25,12 +26,15 @@ typedef NS_ENUM (NSInteger, RequestType) {
           andDictParam:(NSDictionary *)dictParam
              modelName:(Class)modelName
       requestSuccessed:(RequestSuccessed)requestSuccessed
-        requestFailure:(RequestFailure)requestFailure;
+        requestFailure:(RequestFailure)requestFailure
+              progress:(Progress)pro;
+
 + (void)postDataWithAPI:(NSString *)apiName
            andDictParam:(NSDictionary *)dictParam
               modelName:(Class)modelName
        requestSuccessed:(RequestSuccessed)requestSuccessed
-         requestFailure:(RequestFailure)requestFailure;
+         requestFailure:(RequestFailure)requestFailure
+               progress:(Progress)pro;
 
 #pragma mark - 自定义url前缀的GET和POST
 
@@ -39,14 +43,16 @@ typedef NS_ENUM (NSInteger, RequestType) {
           andDictParam:(NSDictionary *)dictParam
              modelName:(Class)modelName
       requestSuccessed:(RequestSuccessed)requestSuccessed
-        requestFailure:(RequestFailure)requestFailure;
+        requestFailure:(RequestFailure)requestFailure
+              progress:(Progress)pro;
+
 + (void)postDataToUrl:(NSString *)url
               withAPI:(NSString *)apiName
          andDictParam:(NSDictionary *)dictParam
             modelName:(Class)modelName
      requestSuccessed:(RequestSuccessed)requestSuccessed
-       requestFailure:(RequestFailure)requestFailure;
-
+       requestFailure:(RequestFailure)requestFailure
+             progress:(Progress)pro;
 
 #pragma mark - 通用的GET和POST（只返回BaseModel的Data内容）
 
@@ -58,7 +64,8 @@ typedef NS_ENUM (NSInteger, RequestType) {
            modelName:(Class)modelName
          requestType:(RequestType)requestType
     requestSuccessed:(RequestSuccessed)requestSuccessed
-      requestFailure:(RequestFailure)requestFailure;
+      requestFailure:(RequestFailure)requestFailure
+            progress:(Progress)pro;
 
 #pragma mark - 上传文件
 
@@ -67,8 +74,8 @@ typedef NS_ENUM (NSInteger, RequestType) {
             withApi:(NSString *)apiName
        andDictParam:(NSDictionary *)dictParam
    requestSuccessed:(RequestSuccessed)requestSuccessed
-     requestFailure:(RequestFailure)requestFailure;
-
+     requestFailure:(RequestFailure)requestFailure
+           progress:(Progress)pro;
 #pragma mark - 通用的GET、POST和上传图片（返回BaseModel的所有内容）
 
 + (void)requestByUrl:(NSString *)url
@@ -79,8 +86,8 @@ typedef NS_ENUM (NSInteger, RequestType) {
            imageData:(NSData *)imageData
          requestType:(RequestType)requestType
     requestSuccessed:(RequestSuccessed)requestSuccessed
-      requestFailure:(RequestFailure)requestFailure;
-
+      requestFailure:(RequestFailure)requestFailure
+            progress:(Progress)pro;
 
 //TODO:测试参数加密字符串
 + (NSString *)signatureWithParam:(NSDictionary *)param;

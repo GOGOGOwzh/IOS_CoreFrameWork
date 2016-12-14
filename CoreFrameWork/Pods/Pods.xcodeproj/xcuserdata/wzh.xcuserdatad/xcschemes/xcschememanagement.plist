@@ -29,12 +29,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PureLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Reachability.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SMPageControl.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,37 +77,42 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>25AB2606DA5478C206CC8C7CDA49F538</key>
+		<key>359E43BE3655E529CFD3D7CE6CB68260</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>35AA1E6308D9F59F1287475F4C4919D5</key>
+		<key>68D19382EEEA4C97E4CC27DC408E0FF3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>391A85CDCD2E5CB748C42E749350E678</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>613C819FAFD61EAE347A6DECA5F84379</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>73BCC78ED547187C3D184A7E6E82877C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>743CD1FCBE8580EE33E52829972CCAE1</key>
+		<key>8284BC6BC4EE71FDCEEDA6E1F2746BE3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9A4E55DD48CD765F56714784188903DF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B48A41EE21DAF9EDC8CDB51B4B92F5C4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BF2ECE31CF0E6371F99A5D031FA5ECEA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CFC8A68E956329ACD96E140581FC727C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,7 +127,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FDC86A53390D9036D1F1A6B68D61DD35</key>
+		<key>E4F49D87311D35D226496BA31DE1DA72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA37FF112EAE00052F2F4B0CE9F7136E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

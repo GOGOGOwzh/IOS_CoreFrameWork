@@ -9,6 +9,12 @@
 #ifndef EnumType_h
 #define EnumType_h
 
+typedef NS_ENUM(NSInteger, BackType) {
+    BackTypeDefault = 0,
+    BackTypeImage,
+    BackTypeSliding,
+    BackTypeDismiss NS_DEPRECATED_IOS(2_0, 3_0)
+};
 
 typedef NS_ENUM(NSInteger, VersionCompareResult) {
     VersionCompareResultAscending = -1,

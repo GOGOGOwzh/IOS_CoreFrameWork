@@ -32,10 +32,12 @@ PODS:
   - JSONModel (1.0.2)
   - MBProgressHUD (1.0.0)
   - pop (1.0.9)
+  - PureLayout (3.0.2)
   - Reachability (3.2)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
+  - SMPageControl (1.2)
   - UIImage-Categories (1.0.0)
   - UIImage-Resize (1.0.1)
   - ZYQAssetPickerController (1.0.0)
@@ -46,8 +48,10 @@ DEPENDENCIES:
   - JSONModel (~> 1.0.2)
   - MBProgressHUD
   - pop (~> 1.0.7)
+  - PureLayout
   - Reachability
   - SDWebImage
+  - SMPageControl
   - UIImage-Categories
   - UIImage-Resize
   - ZYQAssetPickerController
@@ -58,12 +62,14 @@ SPEC CHECKSUMS:
   JSONModel: 6ffcb4ffa3659c9e9a2e5d45d6c7705bab187c03
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SMPageControl: 922892813001cfaf059e86e6801f46a967e9ee29
   UIImage-Categories: a0593f6a7991c99016b9ecadfbd38b3717ff1a73
   UIImage-Resize: fa776860f10e6900bbaf53a73e494bdceaaccc77
   ZYQAssetPickerController: e5cf51ee6c05fa06746830026c247cb9f6699e84
 
-PODFILE CHECKSUM: b768139e7879158688cb517aec1ba2674acb2cf8
+PODFILE CHECKSUM: f7a55916bcc09890d6ad31cb3440f7352a89b959
 
 COCOAPODS: 1.0.1

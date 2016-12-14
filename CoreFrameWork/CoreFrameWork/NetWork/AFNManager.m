@@ -18,18 +18,41 @@
           andDictParam:(NSDictionary *)dictParam
              modelName:(Class)modelName
       requestSuccessed:(RequestSuccessed)requestSuccessed
-        requestFailure:(RequestFailure)requestFailure {
+        requestFailure:(RequestFailure)requestFailure
+              progress:(Progress)pro
+{
     NSString *url = kResPathAppBaseUrl;
-    [self requestByUrl:url withAPI:apiName andArrayParam:nil andDictParam:dictParam andBodyParam:nil modelName:modelName requestType:RequestTypeGET requestSuccessed:requestSuccessed requestFailure:requestFailure];
+        [self requestByUrl:url
+                   withAPI:apiName
+             andArrayParam:nil
+              andDictParam:dictParam
+              andBodyParam:nil
+                 modelName:modelName
+               requestType:RequestTypeGET
+          requestSuccessed:requestSuccessed
+            requestFailure:requestFailure
+                  progress:pro
+         ];
 }
 
 + (void)postDataWithAPI:(NSString *)apiName
            andDictParam:(NSDictionary *)dictParam
               modelName:(Class)modelName
        requestSuccessed:(RequestSuccessed)requestSuccessed
-         requestFailure:(RequestFailure)requestFailure {
+         requestFailure:(RequestFailure)requestFailure
+               progress:(Progress)pro
+{
     NSString *url = kResPathAppBaseUrl;
-    [self requestByUrl:url withAPI:apiName andArrayParam:nil andDictParam:dictParam andBodyParam:nil modelName:modelName requestType:RequestTypePOST requestSuccessed:requestSuccessed requestFailure:requestFailure];
+    [self requestByUrl:url withAPI:apiName
+         andArrayParam:nil
+          andDictParam:dictParam
+          andBodyParam:nil
+             modelName:modelName
+           requestType:RequestTypePOST
+      requestSuccessed:requestSuccessed
+        requestFailure:requestFailure
+              progress:pro
+     ];
 }
 
 
@@ -40,8 +63,17 @@
           andDictParam:(NSDictionary *)dictParam
              modelName:(Class)modelName
       requestSuccessed:(RequestSuccessed)requestSuccessed
-        requestFailure:(RequestFailure)requestFailure {
-    [self requestByUrl:url withAPI:apiName andArrayParam:nil andDictParam:dictParam andBodyParam:nil modelName:modelName requestType:RequestTypeGET requestSuccessed:requestSuccessed requestFailure:requestFailure];
+        requestFailure:(RequestFailure)requestFailure
+              progress:(Progress)pro
+{
+    [self requestByUrl:url withAPI:apiName
+         andArrayParam:nil andDictParam:dictParam
+          andBodyParam:nil modelName:modelName
+           requestType:RequestTypeGET
+      requestSuccessed:requestSuccessed
+        requestFailure:requestFailure
+              progress:pro
+     ];
 }
 
 + (void)postDataToUrl:(NSString *)url
@@ -49,8 +81,17 @@
          andDictParam:(NSDictionary *)dictParam
             modelName:(Class)modelName
      requestSuccessed:(RequestSuccessed)requestSuccessed
-       requestFailure:(RequestFailure)requestFailure {
-    [self requestByUrl:url withAPI:apiName andArrayParam:nil andDictParam:dictParam andBodyParam:nil modelName:modelName requestType:RequestTypePOST requestSuccessed:requestSuccessed requestFailure:requestFailure];
+       requestFailure:(RequestFailure)requestFailure
+             progress:(Progress)pro
+{
+    [self requestByUrl:url withAPI:apiName
+         andArrayParam:nil andDictParam:dictParam
+          andBodyParam:nil modelName:modelName
+           requestType:RequestTypePOST
+      requestSuccessed:requestSuccessed
+        requestFailure:requestFailure
+              progress:pro
+     ];
 }
 
 
@@ -76,41 +117,63 @@
            modelName:(Class)modelName
          requestType:(RequestType)requestType
     requestSuccessed:(RequestSuccessed)requestSuccessed
-      requestFailure:(RequestFailure)requestFailure {
+      requestFailure:(RequestFailure)requestFailure
+            progress:(Progress)pro
+{
     
-    [self   requestByUrl:url withAPI:apiName andArrayParam:arrayParam andDictParam:dictParam andBodyParam:bodyParam imageData:nil requestType:requestType
-        requestSuccessed: ^(id responseObject) {
-            BaseModel *baseModel = (BaseModel *)responseObject;
-            if (1 == baseModel.state) {  //接口访问成功
-                NSObject *dataModel = baseModel.data;
-                JSONModelError *initError = nil;
-                if ( [NSString isNotEmpty:modelName] && [modelName isSubclassOfClass:[BaseDataModel class]]) {
-                    if ([dataModel isKindOfClass:[NSArray class]]) {
-                        dataModel = [modelName arrayOfModelsFromDictionaries:(NSArray *)dataModel error:&initError];
-                    }
-                    else if ([dataModel isKindOfClass:[NSDictionary class]]) {
-                        dataModel = [[modelName alloc] initWithDictionary:(NSDictionary *)dataModel error:&initError];
-                    }
+        [self   requestByUrl:url
+                     withAPI:apiName
+               andArrayParam:arrayParam
+                andDictParam:dictParam
+                andBodyParam:bodyParam
+                   imageData:nil
+                 requestType:requestType
+            requestSuccessed: ^(id responseObject)
+            {
+                BaseModel *baseModel = (BaseModel *)responseObject;
+                if (1 == baseModel.state)
+                {  //接口访问成功
+                    NSObject *dataModel = baseModel.data;
+                    JSONModelError *initError = nil;
+                    if ( [NSString isNotEmpty:modelName] && [modelName isSubclassOfClass:[BaseDataModel class]])
+                    {
+                        if ([dataModel isKindOfClass:[NSArray class]])
+                        {
+                            dataModel = [modelName arrayOfModelsFromDictionaries:(NSArray *)dataModel error:&initError];
+                        }
+                        else if ([dataModel isKindOfClass:[NSDictionary class]])
+                        {
+                            dataModel = [[modelName alloc] initWithDictionary:(NSDictionary *)dataModel error:&initError];
+                        }
                 }
                 
                 //针对转换映射后的处理
-                if (initError) {
-                    if (requestFailure) {
+                if (initError)
+                {
+                    if (requestFailure)
+                    {
                         requestFailure(1101, initError.localizedDescription);
                     }
                 }
-                else {
-                    if (requestSuccessed) {
+                else
+                {
+                    if (requestSuccessed)
+                    {
                         requestSuccessed(dataModel);//注意：这里dataModel为nil也让它返回
                     }
                 }
             }
-            else {
-                if (requestFailure) {
+            else
+            {
+                if (requestFailure)
+                {
                     requestFailure(baseModel.state, baseModel.message);
                 }
             }
-        } requestFailure:requestFailure];
+        }
+              requestFailure:requestFailure
+                    progress:pro
+     ];
 }
 
 
@@ -121,7 +184,9 @@
             withApi:(NSString *)apiName
        andDictParam:(NSDictionary *)dictParam
    requestSuccessed:(RequestSuccessed)requestSuccessed
-     requestFailure:(RequestFailure)requestFailure {
+     requestFailure:(RequestFailure)requestFailure
+           progress:(Progress)pro
+{
     //TODO:resize
     [self requestByUrl:url
                withAPI:apiName
@@ -130,32 +195,45 @@
           andBodyParam:nil
              imageData:UIImagePNGRepresentation(image)
            requestType:RequestTypeUploadFile
-      requestSuccessed:^(id responseObject) {
+      requestSuccessed:^(id responseObject)
+     {
           BaseModel *baseModel = (BaseModel *)responseObject;
-          if ([baseModel isKindOfClass:[BaseModel class]]) {
-              if (1 == baseModel.state) {  //接口访问成功
+          if ([baseModel isKindOfClass:[BaseModel class]])
+          {
+              if (1 == baseModel.state)
+              {  //接口访问成功
                   NSLog(@"success message = %@", baseModel.message);
-                  if (requestSuccessed) {
+                  if (requestSuccessed)
+                  {
                       requestSuccessed(baseModel);
                   }
               }
-              else {
-                  if (requestFailure) {
+              else
+              {
+                  if (requestFailure)
+                  {
                       requestFailure(baseModel.state, baseModel.message);
                   }
               }
           }
-          else {
-              if (requestFailure) {
+          else
+          {
+              if (requestFailure)
+              {
                   requestFailure(1102, @"本地数据映射错误！");
               }
           }
           
-      } requestFailure:^(NSInteger errorCode, NSString *errorMessage) {
-          if (requestFailure) {
+      }
+        requestFailure:^(NSInteger errorCode, NSString *errorMessage)
+        {
+          if (requestFailure)
+          {
               requestFailure(1103, errorMessage);
           }
-      }];
+      }
+        progress:pro
+     ];
 }
 
 #pragma mark - 通用的GET和POST（返回BaseModel的所有内容）
@@ -180,7 +258,9 @@
            imageData:(NSData *)imageData
          requestType:(RequestType)requestType
     requestSuccessed:(RequestSuccessed)requestSuccessed
-      requestFailure:(RequestFailure)requestFailure {
+      requestFailure:(RequestFailure)requestFailure
+            progress:(Progress)pro
+{
     if (NO == [ReachabilityManager sharedInstance].reachable) {
         requestFailure(-1, @"网络错误！");
         return;
@@ -289,6 +369,15 @@
         }
     };
 
+    void (^progress1)(NSProgress * prg) = ^(NSProgress * prg){
+        int64_t total       = prg.totalUnitCount;
+        int64_t completed   = prg.completedUnitCount;
+        
+        if (pro) {
+            pro(total,completed);
+        }
+    };
+    
     NSLog(@"requestType = %ld, newDictParam = %@", (long)requestType, newDictParam);
     
     // new method for afn 3.0
@@ -297,7 +386,7 @@
         
         [manager GET:newUrlString
           parameters:newDictParam
-            progress:nil
+            progress:progress1
              success:requestSuccessed1
              failure:requestFailure1];
     }
@@ -305,7 +394,7 @@
         NSLog(@"posting data...");
         [manager POST:newUrlString
            parameters:newDictParam
-             progress:nil
+             progress:progress1
               success:requestSuccessed1
               failure:requestFailure1];
     }
@@ -316,7 +405,7 @@
             constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
                 [formData appendPartWithFileData:imageData name:@"file" fileName:@"avatar.png" mimeType:@"application/octet-stream"];
             }
-             progress:nil
+             progress:progress1
               success:requestSuccessed1
               failure:requestFailure1];
         
